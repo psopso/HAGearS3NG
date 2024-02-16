@@ -51,7 +51,7 @@ var HAServices = (function() {
 		$.ajax({
 			url: "https://cl1p.net/" + clipPath,
 			success:function(data) {
-				token = $(data).find("textarea").text();
+				let token = $(data).find("textarea").text();
 				//if (token.length > 100) {
 					callback(token);
 				//} else {
@@ -81,7 +81,7 @@ var HAServices = (function() {
 		$.ajax({
 			url: "https://cl1p.net/" + clipPath,
 			success:function(data) {
-				token = $(data).find("textarea").text();
+				let token = $(data).find("textarea").text();
 				if (token.length > 100) {
 					callback(token);
 				} else {
