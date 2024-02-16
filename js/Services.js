@@ -25,7 +25,7 @@ var HAServices = (function() {
 			//localStorage.setItem('ha-token', token);
 			
 			this.url = url;
-			sleep(1000);
+			sleep(10);
 			this.setTokenFromCl1p(token, function(token) {
 				this.token = token;
 				//if (url.endsWith("/")) {
@@ -35,10 +35,10 @@ var HAServices = (function() {
 				localStorage.setItem('ha-token', token);
 				
 				//this.url = url;
-				//callback();
+				callback();
 			}.bind(this));
 
-			callback();
+			//callback();
 		}.bind(this));
 	};
 	
