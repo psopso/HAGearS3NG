@@ -10,30 +10,29 @@ I am going to apologize in advance for the setup screen. These devices really we
 
 ```Settings > General Management > Input > Keyboard Settings > SmartTyping > Predictive Text | OFF```
 
-2. Enter your complete url including protocol and all, e.g. https://myurl.org
-
-3. Using a Web-Browser on your PC log in to your HomeAssistant installation and click on your profile button (the round button labeled "W" in the screenshot).
+2. Using a Web-Browser on your PC log in to your HomeAssistant installation and click on your profile button (the round button labeled "W" in the screenshot).
 
     ![Screenshot](screenshots/ha_profilebutton.png?raw=true)
 
-4. Scroll down to the bottom and click "Create Token" in the "Long-Lived Access Tokens" section.
+3. Scroll down to the bottom and click "Create Token" in the "Long-Lived Access Tokens" section.
 
     ![Screenshot](screenshots/ha_createtoken.png?raw=true)
 
-
-5. Enter a name for your token, e.g. GearS3 
+4. Enter a name for your token, e.g. GearS3 
 
     ![Screenshot](screenshots/ha_setname.png?raw=true)
 
-6. Copy the shown key to your clipboard.
+5. Copy the shown key to your clipboard.
 
    ![Screenshot](screenshots/ha_copytoken.png?raw=true)
 
-7. Enter a random text (e.g. ```random```) in the Cl1p.net Path field on your watch. 
+6. Enter a random text (e.g. ```random```) in the Cl1p.net Path field on your watch. 
+
+7. Enter a random text (e.g. ```random```) in the Cl1p.net Path field on your watch different from one in 6. 
 
   ![Screenshot](screenshots/settings.png?raw=true)
 
-7.  As the token is very long, you don't want to enter it using the watch interface, so we are using an anonymous web clipboard service. Go to https://cl1p.net/random where ```random``` is your text that you haven choosen before. Paste your token and click "Create Cl1p". Don't refresh the web page afterwards because the token can be retrieved only once.
+7. Go to https://cl1p.net/random where ```random``` is your text that you haven choosen before. Paste your token and click "Create Cl1p". Don't refresh the web page afterwards because the token can be retrieved only once.
 
    ![Screenshot](screenshots/cl1p_copypaste.png?raw=true)
 
