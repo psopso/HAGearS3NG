@@ -193,3 +193,7 @@ var HAServices = (function() {
 	return new HAServices();
 	
 })();
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
