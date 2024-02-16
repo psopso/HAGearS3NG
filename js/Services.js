@@ -16,15 +16,26 @@ var HAServices = (function() {
 	 * @param password
 	 */
 	HAServices.prototype.updateCredentials = function(url, token, callback){
-		this.setTokenFromCl1p(token, function(token) {
-			this.token = token;
+		this.setURLFromCl1p(url, function(url) {
+//			this.url = url;
 			if (url.endsWith("/")) {
 				url = url.slice(0,url.length-1);
 			}
 			localStorage.setItem('ha-url', url);
-			localStorage.setItem('ha-token', token);
+//			localStorage.setItem('ha-token', token);
 			
 			this.url = url;
+			callback();
+		}.bind(this));
+		this.setTokenFromCl1p(token, function(token) {
+			this.token = token;
+//			if (url.endsWith("/")) {
+//				url = url.slice(0,url.length-1);
+//			}
+//			localStorage.setItem('ha-url', url);
+			localStorage.setItem('ha-token', token);
+			
+//			this.url = url;
 			callback();
 		}.bind(this));
 	};
@@ -34,6 +45,36 @@ var HAServices = (function() {
 	 * @param url
 	 * @param password
 	 */
+	HAServices.prototype.setURLFromCl1p = function(clipPath, callback){
+		$.ajax({
+			url: "https://cl1p.net/" + clipPath,
+			success:function(data) {
+				token = $(data).find("textarea").text();
+//				if (token.length > 100) {
+					callback(token);
+//				} else {
+					// Show error popup
+//					$('#error-popup-contents').text("No valid token\n found for\n" + clipPath);
+//					tau.changePage('error-popup');	
+//				}
+			}.bind(this),
+			error: function(xhr, status, message) {	
+				// TODO more status to message conversions?
+				if (!message) {
+					if (xhr.status === 0) {
+						message = "Check network connection or home assistant url in setup";
+					} else {
+						message = "An unknown error has occured.";
+					}
+				}
+				
+				// Show error popup
+				$('#error-popup-contents').text("An error has occured.\n" + "Status code: " + xhr.status + "\n" + "Messsage: " + message);
+				tau.changePage('error-popup');
+			}.bind(this) 
+		});
+	};
+	
 	HAServices.prototype.setTokenFromCl1p = function(clipPath, callback){
 		$.ajax({
 			url: "https://cl1p.net/" + clipPath,
@@ -72,7 +113,7 @@ var HAServices = (function() {
 		return {
 			url: this.url,
 			token: this.token
-		}
+		};
 	};
 	
 	/**
@@ -103,7 +144,7 @@ var HAServices = (function() {
 				'Authorization': 'Bearer ' + this.token
 			}
 		};
-	}
+	};
 	
 	// Service calls
 	
