@@ -54,3 +54,4 @@ Groups (on/off)
 
 ![Screenshot](screenshots/switches.png?raw=true)
 ![Screenshot](screenshots/covers.png?raw=true)
+
